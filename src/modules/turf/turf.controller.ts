@@ -33,7 +33,7 @@ export const getAllTurfs = catchAsync(async (req: Request, res: Response) => {
 });
 
 export const getTurfBySlug = catchAsync(async (req: Request, res: Response) => {
-  const turf = await turfService.getTurfBySlug(req.params.slug as string);
+  const turf = await turfService.getTurfBySlug(req.params.slug);
   sendResponse(res, {
     success: true,
     statusCode: 200,
@@ -43,7 +43,7 @@ export const getTurfBySlug = catchAsync(async (req: Request, res: Response) => {
 });
 
 export const getTurfById = catchAsync(async (req: Request, res: Response) => {
-  const turf = await turfService.getTurfById(req.params.id as string);
+  const turf = await turfService.getTurfById(req.params.id);
   sendResponse(res, {
     success: true,
     statusCode: 200,
@@ -53,7 +53,7 @@ export const getTurfById = catchAsync(async (req: Request, res: Response) => {
 });
 
 export const updateTurf = catchAsync(async (req: Request, res: Response) => {
-  const turf = await turfService.updateTurf(req.params.id as string, req.body);
+  const turf = await turfService.updateTurf(req.params.id, req.body);
   sendResponse(res, {
     success: true,
     statusCode: 200,
@@ -63,7 +63,7 @@ export const updateTurf = catchAsync(async (req: Request, res: Response) => {
 });
 
 export const deleteTurf = catchAsync(async (req: Request, res: Response) => {
-  await turfService.deleteTurf(req.params.id as string);
+  await turfService.deleteTurf(req.params.id);
   sendResponse(res, {
     success: true,
     statusCode: 200,
