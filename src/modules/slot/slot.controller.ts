@@ -81,7 +81,7 @@ export const getAllSlots = catchAsync(async (req: Request, res: Response) => {
 });
 
 export const getSlotById = catchAsync(async (req: Request, res: Response) => {
-  const slot = await slotService.getSlotById(req.params.id);
+  const slot = await slotService.getSlotById(req.params.id as string);
   sendResponse(res, {
     success: true,
     statusCode: 200,
@@ -91,7 +91,7 @@ export const getSlotById = catchAsync(async (req: Request, res: Response) => {
 });
 
 export const updateSlot = catchAsync(async (req: Request, res: Response) => {
-  const slot = await slotService.updateSlot(req.params.id, req.body);
+  const slot = await slotService.updateSlot(req.params.id as string, req.body);
   sendResponse(res, {
     success: true,
     statusCode: 200,
@@ -101,7 +101,7 @@ export const updateSlot = catchAsync(async (req: Request, res: Response) => {
 });
 
 export const deleteSlot = catchAsync(async (req: Request, res: Response) => {
-  await slotService.deleteSlot(req.params.id);
+  await slotService.deleteSlot(req.params.id as string);
   sendResponse(res, {
     success: true,
     statusCode: 200,

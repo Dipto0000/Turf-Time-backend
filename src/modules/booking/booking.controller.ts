@@ -82,7 +82,7 @@ export const getAllBookings = catchAsync(async (req: Request, res: Response) => 
 });
 
 export const cancelBooking = catchAsync(async (req: AuthRequest, res: Response) => {
-  const booking = await bookingService.cancelBooking(req.params.id, req.user?.userId);
+  const booking = await bookingService.cancelBooking(req.params.id as string, req.user?.userId);
   sendResponse(res, {
     success: true,
     statusCode: 200,
@@ -92,7 +92,7 @@ export const cancelBooking = catchAsync(async (req: AuthRequest, res: Response) 
 });
 
 export const getBookingById = catchAsync(async (req: Request, res: Response) => {
-  const booking = await bookingService.getBookingById(req.params.id);
+  const booking = await bookingService.getBookingById(req.params.id as string);
   sendResponse(res, {
     success: true,
     statusCode: 200,

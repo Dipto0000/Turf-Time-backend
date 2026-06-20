@@ -24,7 +24,7 @@ export const getAllUsers = catchAsync(async (req: Request, res: Response) => {
 });
 
 export const promoteToAdmin = catchAsync(async (req: AuthRequest, res: Response) => {
-  const user = await adminService.promoteToAdmin(req.params.id, req.user!.userId);
+  const user = await adminService.promoteToAdmin(req.params.id as string, req.user!.userId);
   sendResponse(res, {
     success: true,
     statusCode: 200,
@@ -34,7 +34,7 @@ export const promoteToAdmin = catchAsync(async (req: AuthRequest, res: Response)
 });
 
 export const toggleUserStatus = catchAsync(async (req: AuthRequest, res: Response) => {
-  const user = await adminService.toggleUserStatus(req.params.id, req.user!.userId);
+  const user = await adminService.toggleUserStatus(req.params.id as string, req.user!.userId);
   sendResponse(res, {
     success: true,
     statusCode: 200,
